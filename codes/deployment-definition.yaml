@@ -14,4 +14,10 @@ spec:
       name: nginx-app
       labels:
         type: front-end
+    spec:
+      containers:
+        - name: my-nginx-container
+          image: nginx
+          ports:
+            - containerPort: 80
   replicas: 3
