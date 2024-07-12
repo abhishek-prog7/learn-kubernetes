@@ -12,5 +12,5 @@ spec:
       targetPort: 80
       nodePort: 30006
   selector:
-    name: redis-postgres-pod
+    name: result-app-pod
     app: demo-voting-app
