@@ -1,23 +1,36 @@
+# Specifies the API version for the Kubernetes resource
 apiVersion: apps/v1
+
+# Declares the kind of resource being defined (Deployment)
 kind: Deployment
+
+# Metadata section holds details like name and labels for the deployment
 metadata:
   name: my-app
   labels:
     name: my-nginx-app
     type: front-end
+
+# Specification of the Deployment
 spec:
+  # Selector matches pods with the specified label
   selector:
     matchLabels:
       type: front-end
+
+  # Template for the pod to be created by this deployment
   template:
     metadata:
       name: nginx-app
       labels:
         type: front-end
     spec:
+      # Container specifications for the pod
       containers:
         - name: my-nginx-container
-          image: nginx
+          image: nginx         # The container image to use
           ports:
-            - containerPort: 80
+            - containerPort: 80  # Port exposed by the container
+
+  # Number of pod replicas to maintain
   replicas: 3
